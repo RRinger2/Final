@@ -19,12 +19,12 @@ icon=PhotoImage(file='logo.png')
 root.iconphoto(False,icon)
 
 #Heading in window
-Label(root,text='Please enter customer data',font='times 13 bold',bg='#e9967a',fg='black').place(x=20,y=20)
+Label(root,text='Please Enter Customer Data',font='times 13 bold',bg='#e9967a',fg='black').place(x=20,y=20)
 
-Label(root,text='Name',font=23,bg='#e9967a',fg='black').place(x=50,y=100)
-Label(root,text='Name',font=23,bg='#e9967a',fg='black').place(x=50,y=100)
-Label(root,text='Name',font=23,bg='#e9967a',fg='black').place(x=50,y=100)
-Label(root,text='Name',font=23,bg='#e9967a',fg='black').place(x=55,y=100)
-Label(root,text='Name',font=23,bg='#e9967a',fg='black').place(x=50,y=100)
+Label(root,text='Name',font='times',bg='#e9967a',fg='black').place(x=50,y=100)
+Label(root,text='Name',font='times',bg='#e9967a',fg='black').place(x=50,y=150)
+Label(root,text='Name',font='times',bg='#e9967a',fg='black').place(x=50,y=200)
+Label(root,text='Name',font='times',bg='#e9967a',fg='black').place(x=50,y=250)
+Label(root,text='Name',font='times',bg='#e9967a',fg='black').place(x=50,y=300)
 
 root.mainloop()
