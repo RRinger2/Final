@@ -5,6 +5,7 @@ from tkinter import messagebox
 import openpyxl ,xlrd
 from openpyxl import Workbook
 import pathlib
+import xlsxwriter
 
 #Root Window
 root=Tk()
@@ -19,10 +20,19 @@ root.configure(bg='#e9967a')
 
 
 def submit():
-    pass
+    name_entry.get('1.0',END)
+    phone_entry.get('1.0',END)
+    address_entry.get('1.0',END)
+    birth_entry.get('1.0',END)
+    email_entry.get('1.0',END)
+
+    
 
 
 
+
+
+#Defining the clear function. Clearn all values
 def clear():
     name_value.set('')
     phone_value.set('')
@@ -39,6 +49,7 @@ root.iconphoto(False,icon)
 #Heading in window
 Label(root,text='Please Enter Customer Data',font='times 13 bold',bg='#e9967a',fg='black').place(x=20,y=20)
 
+#Label Creation
 Label(root,text='Name',font='23',bg='#e9967a',fg='black').place(x=50,y=100)
 Label(root,text='Phone No.',font='23',bg='#e9967a',fg='black').place(x=50,y=150)
 Label(root,text='Date of Birth',font='23',bg='#e9967a',fg='black').place(x=50,y=200)
@@ -61,15 +72,17 @@ email_entry = Entry(root,textvariable=email_value,width=15,bd=2,font=20)
 gender_combobox = Combobox(root,values=['Male','Female','Other'],font='arial 14', state='r',width=14)
 gender_combobox.place(x=450,y=250)
 
+#Address text box
 address_entry = Text(root,bd=2,width=20,height=2)
 
-
+#placing entry boxes
 name_entry.place(x=200,y=100)
 phone_entry.place(x=200,y=150)
 birth_entry.place(x=200,y=200)
 address_entry.place(x=200,y=250)
 email_entry.place(x=450,y=200)
 
+#Button Creation
 Button(root,text='Submit',bg='#e9967a',fg='white',width=15,height=2,command=submit).place(x=200,y=350)
 Button(root,text='Clear',bg='#e9967a',fg='white',width=15,height=2,command=clear).place(x=340,y=350)
 Button(root,text='Exit',bg='#e9967a',fg='white',width=15,height=2,command=lambda:root.destroy()).place(x=480,y=350)
