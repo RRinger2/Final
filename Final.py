@@ -41,13 +41,12 @@ def submit():
     birth_entry.get('1.0',END)
     email_entry.get('1.0',END)
 
-    
 
 
 
 
 
-#Defining the clear function. Clearn all values
+#Defining the clear function. Clear all values
 def clear():
     name_value.set('')
     phone_value.set('')
