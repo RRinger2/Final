@@ -5,7 +5,7 @@ from tkinter import messagebox
 import openpyxl ,xlrd
 from openpyxl import Workbook
 import pathlib
-import xlsxwriter
+
 
 #Root Window
 root=Tk()
@@ -15,7 +15,22 @@ root.resizable(False,False)
 root.configure(bg='#e9967a')
 
 
+#Creates an excel workbook. First checks to see if file already exists. If not then creates workbook named 'Data.xlsx'.
 
+file = pathlib.Path('Data.xlsx')
+if file.exists():
+    pass
+else:
+    file=Workbook()
+    sheet=file.active
+    sheet['A1'] ="Name"
+    sheet['B1'] ="Birth"
+    sheet['C1'] ="Gender"
+    sheet['D1'] ="PhoneNumber"
+    sheet['E1'] ="Address"
+    sheet['F1'] ="Email"
+
+    file.save('Data.xlsx')
 
 
 
