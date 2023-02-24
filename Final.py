@@ -5,7 +5,7 @@ from tkinter import messagebox
 import openpyxl ,xlrd
 from openpyxl import Workbook
 import pathlib
-
+from openpyxl.styles import Font
 
 #Root Window
 root=Tk()
@@ -30,17 +30,58 @@ else:
     sheet['E1'] ="Address"
     sheet['F1'] ="Email"
 
+    #Changing font style to bold on column attribute
+    font = Font(bold=True)
+    sheet['A1'].font= font
+    sheet['B1'].font= font
+    sheet['C1'].font= font
+    sheet['D1'].font= font
+    sheet['E1'].font= font
+    sheet['F1'].font= font
+
     file.save('Data.xlsx')
 
 
 
 def submit():
-    name_entry.get('1.0',END)
-    phone_entry.get('1.0',END)
-    address_entry.get('1.0',END)
-    birth_entry.get('1.0',END)
-    email_entry.get('1.0',END)
+    # Open the Excel file and selects the active sheet, in this case it's Data.xlsx
+    file = openpyxl.load_workbook('Data.xlsx')
+    sheet = file.active
+    
+    # Get the values from the text entry boxes
+    name = name_value.get()
+    birth = birth_value.get()
+    gender = gender_combobox.get()
+    phone = phone_value.get()
+    address = address_entry.get("1.0",'end-1c')
+    email = email_entry.get()
 
+    # Validate that all fields are filled out
+    if not all([name, birth, gender, phone, address, email]):
+        messagebox.showerror("Error", "All fields are required.")
+        return
+    
+    # Add the values to the next available row in the sheet
+    next_row = sheet.max_row + 1
+    sheet.cell(row=next_row, column=1).value = name
+    sheet.cell(row=next_row, column=2).value = birth
+    sheet.cell(row=next_row, column=3).value = gender
+    sheet.cell(row=next_row, column=4).value = phone
+    sheet.cell(row=next_row, column=5).value = address
+    sheet.cell(row=next_row, column=6).value = email
+
+    #clearing entry and value boxes
+    name_value.set('')
+    phone_value.set('')
+    birth_value.set('')
+    address_entry.delete('1.0',END)
+    email_value.set('')
+    
+    # Save the Excel file
+    file.save('Data.xlsx')
+    
+    # Show a message box to indicate success
+    messagebox.showinfo("Success", "User information submitted successfully.")
 
 
 
