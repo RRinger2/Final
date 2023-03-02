@@ -1,3 +1,11 @@
+#Riley Ringer and Javier Rodriguez Group 2
+#This program is intended to make entering data into an excel table easier.
+#When ran, this program will display a GUI window with entry boxes and buttons.
+#The program checks to see if a "Data.xlsx" file exists if not it then creates one to store user data.
+#Once the required fields have been entered you may then submit your data.
+#The document can then be viewed in the same folder for easy viewing and access.
+
+
 from tkinter import *
 from tkinter.ttk import Combobox
 import tkinter as tk
@@ -82,7 +90,6 @@ def submit():
     
     # Show a message box to indicate success
     messagebox.showinfo("Success", "User information submitted successfully.")
-
 
 
 
